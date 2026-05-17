@@ -1,3 +1,4 @@
+```js
 const express = require('express');
 const cors = require('cors');
 const cheerio = require('cheerio');
@@ -9,7 +10,7 @@ app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 app.use(express.static('public'));
 
-const MAX_IMAGES = 60;
+const MAX_IMAGES = 12;
 const CONNECTION_BYTES_PER_SECOND = 700000;
 
 function normalizeInputUrl(value) {
@@ -292,6 +293,17 @@ app.post('/api/analyze', async (req, res) => {
 
 });
 
-app.listen(3000, () => {
-  console.log('Analyzer çalışıyor: http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Analyzer çalışıyor: ${PORT}`);
 });
+```
+
+Bunu komple `server.js` içine replace et.
+Sonra:
+
+1. Commit changes
+2. Railway redeploy bekle
+3. CMD + SHIFT + R
+4. Tekrar test et
