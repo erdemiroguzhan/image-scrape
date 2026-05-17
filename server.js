@@ -98,8 +98,8 @@ async function fetchBuffer(url) {
   });
 
   if (!response.ok) {
-    throw new Error(`Image HTTP ${response.status}`);
-  }
+throw new Error('Image HTTP ' + response.status);
+}
 
   const contentType = response.headers.get('content-type') || '';
 
@@ -301,10 +301,4 @@ app.listen(PORT, () => {
 });
 ```
 
-Bunu komple `server.js` içine replace et.
-Sonra:
 
-1. Commit changes
-2. Railway redeploy bekle
-3. CMD + SHIFT + R
-4. Tekrar test et
