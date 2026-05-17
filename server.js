@@ -82,7 +82,8 @@ async function fetchText(url) {
   });
 
   if (!response.ok) {
-throw new Error(`HTTP ${response.status}`);
+throw new Error('HTTP ' + response.status);
+
 }
 
   return response.text();
